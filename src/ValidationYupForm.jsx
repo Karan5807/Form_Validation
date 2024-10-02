@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import * as Yup from "yup";
 
 const ValidateYupForm = () => {
@@ -53,29 +53,10 @@ const ValidateYupForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // const nonParsed = {
-    //   firstName: "Karan",
-    //   lastName: "Singh",
-    //   email: "Abc@example.com",
-    //   phoneNumber: "1231234218",
-    //   password: "123456Qq*",
-    //   confirmPassword: "123456Qq*",
-    //   age: "18",
-    //   gender: "male",
-    //   interests: ["coding"],
-    //   birthDate: "2024-02-12",
-    // };
-
-    // const parsedUser = validationSchema.cast(nonParsed);
-
-    // console.log(nonParsed, parsedUser);
-
     try {
-      await validationSchema.validate(formData, {abortEarly: false});
+      await validationSchema.validate(formData, { abortEarly: false });
       console.log("Form Submitted", formData);
     } catch (error) {
-
       const newErrors = {};
       error.inner.forEach((err) => {
         newErrors[err.path] = err.message;
@@ -86,7 +67,7 @@ const ValidateYupForm = () => {
   };
 
   const handleChange = (e) => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
 
     setFormData({
       ...formData,
@@ -95,7 +76,7 @@ const ValidateYupForm = () => {
   };
 
   const handleCheckboxChange = (e) => {
-    const {name, checked} = e.target;
+    const { name, checked } = e.target;
     let updatedInterests = [...formData.interests];
     if (checked) {
       updatedInterests.push(name);
@@ -113,8 +94,8 @@ const ValidateYupForm = () => {
 
   return (
     <div className="All">
-      <h2 className='Heading'>Form Validation With Yup</h2>
-      <div className='withValidation'>
+      <h2 className="Heading">Form Validation With Yup</h2>
+      <div className="withValidation">
         <label className="Label">First Name:</label>
         <input
           className="Input"
@@ -124,9 +105,11 @@ const ValidateYupForm = () => {
           placeholder="Enter your first name"
           onChange={handleChange}
         />
-        {errorData.firstName && <div className="Error">{errorData.firstName}</div>}
+        {errorData.firstName && (
+          <div className="Error">{errorData.firstName}</div>
+        )}
       </div>
-      <div className='withValidation'>
+      <div className="withValidation">
         <label className="Label">Last Name:</label>
         <input
           className="Input"
@@ -136,9 +119,11 @@ const ValidateYupForm = () => {
           placeholder="Enter your last name"
           onChange={handleChange}
         />
-        {errorData.lastName && <div className="Error">{errorData.lastName}</div>}
+        {errorData.lastName && (
+          <div className="Error">{errorData.lastName}</div>
+        )}
       </div>
-      <div className='withValidation'>
+      <div className="withValidation">
         <label className="Label">Email:</label>
         <input
           className="Input"
@@ -150,7 +135,7 @@ const ValidateYupForm = () => {
         />
         {errorData.email && <div className="Error">{errorData.email}</div>}
       </div>
-      <div className='withValidation'>
+      <div className="withValidation">
         <label className="Label">Phone Number:</label>
         <input
           className="Input"
@@ -165,7 +150,7 @@ const ValidateYupForm = () => {
         )}
       </div>
 
-      <div className='withValidation'>
+      <div className="withValidation">
         <label className="Label">Password:</label>
         <input
           className="Input"
@@ -175,10 +160,12 @@ const ValidateYupForm = () => {
           placeholder="Enter your password"
           onChange={handleChange}
         />
-        {errorData.password && <div className="Error">{errorData.password}</div>}
+        {errorData.password && (
+          <div className="Error">{errorData.password}</div>
+        )}
       </div>
 
-      <div className='withValidation'>
+      <div className="withValidation">
         <label className="Label">Confirm Password:</label>
         <input
           className="Input"
@@ -193,10 +180,15 @@ const ValidateYupForm = () => {
         )}
       </div>
 
-      <div className='withValidation'>
+      <div className="withValidation">
         <label className="Label">Gender:</label>
-        <select className="Input" name="gender" value={formData.gender} onChange={handleChange}>
-        <option value="male">Select Gender</option>
+        <select
+          className="Input"
+          name="gender"
+          value={formData.gender}
+          onChange={handleChange}
+        >
+          <option value="male">Select Gender</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
           <option value="other">Other</option>
@@ -204,10 +196,10 @@ const ValidateYupForm = () => {
         {errorData.gender && <div className="Error">{errorData.gender}</div>}
       </div>
 
-      <div className='withValidation'>
+      <div className="withValidation">
         <label className="Label">Age:</label>
         <input
-        className="Input"
+          className="Input"
           type="number"
           name="age"
           value={formData.age}
@@ -217,11 +209,11 @@ const ValidateYupForm = () => {
         {errorData.age && <div className="Error">{errorData.age}</div>}
       </div>
 
-      <div className='withValidation'>
+      <div className="withValidation">
         <label className="Label">Interests:</label>
         <label>
           <input
-          className="Input"
+            className="Input"
             type="checkbox"
             name="coding"
             checked={formData.interests.includes("coding")}
@@ -231,7 +223,7 @@ const ValidateYupForm = () => {
         </label>
         <label className="Label">
           <input
-          className="Input"
+            className="Input"
             type="checkbox"
             name="sports"
             checked={formData.interests.includes("sports")}
@@ -241,7 +233,7 @@ const ValidateYupForm = () => {
         </label>
         <label>
           <input
-          className="Input"
+            className="Input"
             type="checkbox"
             name="reading"
             checked={formData.interests.includes("reading")}
@@ -249,23 +241,29 @@ const ValidateYupForm = () => {
           />
           Swimming
         </label>
-        {errorData.interests && <div className="Error">{errorData.interests}</div>}
+        {errorData.interests && (
+          <div className="Error">{errorData.interests}</div>
+        )}
       </div>
-      <div className='withValidation'>
+      <div className="withValidation">
         <label className="Label">Date of Birth:</label>
         <input
-        className="Input"
+          className="Input"
           type="date"
           name="birthDate"
           value={formData.birthDate}
           placeholder="Enter your date of birth"
           onChange={handleChange}
         />
-        {errorData.birthDate && (<div className="Error">{errorData.birthDate}</div>)}
+        {errorData.birthDate && (
+          <div className="Error">{errorData.birthDate}</div>
+        )}
       </div>
 
       <div className="withValidation">
-      <button type="submit" className="Button" onClick={handleSubmit}>Submit</button>
+        <button type="submit" className="Button" onClick={handleSubmit}>
+          Submit
+        </button>
       </div>
     </div>
   );
