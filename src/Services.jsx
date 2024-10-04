@@ -70,7 +70,7 @@ export const SearchComponent = ({ onSearch }) => {
 };
 
 export const SelectComponent = ({ options, onSelect }) => {
-  const [selectedValue, setSelectedValue] = useState('');
+  const [selectedValue, setSelectedValue] = useState("");
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -99,4 +99,33 @@ export const SelectComponent = ({ options, onSelect }) => {
   );
 };
 
-
+export const InputBox = ({
+  Label,
+  Type = "text" || "Number" || "url" || "email" || "date" || "password",
+  Name,
+  Value,
+  Placeholder,
+  onChange,
+  ...restProps
+}) => {
+  return (
+    <div className="flex gap-8 m-4 max-w-md">
+      <div className="flex-auto">
+        <label className="block text-yellow-50 text-left font-medium font-sans">
+          {Label}
+        </label>
+      </div>
+      <div>
+        <input
+          type={Type}
+          name={Name}
+          value={Value}
+          onChange={onChange}
+          placeholder={Placeholder}
+          className="max-w-md p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          {...restProps}
+        />
+      </div>
+    </div>
+  );
+};

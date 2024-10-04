@@ -3,8 +3,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Layout from "./Pages/Layout";
-import ValidateForm from "./ValidateForm";
-import ValidateYupForm from "./ValidationYupForm";
+import ValidateForm from "./Pages/ValidateForm";
+import ValidateYupForm from "./Pages/ValidationYupForm"
 import { Notfound } from "./Services";
 
 function App() {

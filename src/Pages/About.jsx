@@ -87,9 +87,10 @@ const Contact = () => {
   };
 
   return (
-    <React.Fragment>
-      <main className="container animate-slidein text-yellow-950">
-        <h6 className="container text-pretty text-xl sevillana-regular font-semibold animate-slidein">
+    <div className="container flex flex-col items-center justify-center min-h-screen py-10 px-4 animate-slidein text-red-50">
+      <div className="max-w-4xl bg-lime-900 shadow-lg rounded-lg p-8">
+        <h1 className="text-3xl font-bold mb-4">About Us</h1>
+        <h6 className="container text-pretty text-xl sevillana-regular font-medium animate-slidein">
           A Full-Stack Developer have a exposure to building professional
           websites and front-end applications. My skills in FrontEnd
           Technologies as React.js, Redux, JavaScript, HTML, CSS, Material-UI,
@@ -97,34 +98,34 @@ const Contact = () => {
           enthusiastic to learn new tech.
         </h6>
 
-        <div className="container mt-10">
-          <div className="container">
+        {/* Services Section */}
+        <section className="mb-6 mt-12">
+          <h2 className="text-2xl font-semibold mb-3">What We Offer</h2>
+          <ul className="list-disc list-inside text-yellow-50">
             {Skills.map((data, idx) => (
-              <p
-                className="text-lg roboto-serif-font p-4 animate-slidein text-left"
-                key={idx}
-              >
-                {data.content}
-              </p>
+              <li key={idx}>{data.content}</li>
             ))}
-          </div>
-        </div>
+          </ul>
+        </section>
 
-        <h6 className="text-lg roboto-serif-font font-medium mt-10">
+        <h6 className="container text-yellow-50 mb-10 font-medium">
           Ability to understand business requirements and translate them into
-          technical requirements Familiarity with common tools such as Git,
-          Github, VS-Code and Thunder-Client and Apollo Server.
+          technical requirements.
+          <br /> Familiarity with common tools such as Git, Github, VS-Code and
+          Thunder-Client and Apollo Server.
         </h6>
+        {/* Section for Download Resume */}
         <button className="text-xl text-teal-50 p-2 roboto-serif-font font-medium mt-10 border-2 bg-red-800 rounded-md">
           <a href="./Karan_Kumar.pdf" download="./Karan_Kumar.pdf">
             Let's connect | Resume
           </a>{" "}
         </button>
+        {/* Section for Social Icon */}
         <div className="container">
           <SocialIcon />
         </div>
-      </main>
-    </React.Fragment>
+      </div>
+    </div>
   );
 };
 
